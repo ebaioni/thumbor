@@ -41,7 +41,10 @@ Vagrant.configure("2") do |config|
     chef.log_level = :debug
     chef.cookbooks_path = "./cookbooks"
 
-    # chef.add_recipe "zanui-web::opsworks-setup"
+    chef.add_recipe "apt"
+    chef.add_recipe "nginx"
+    chef.add_recipe "curl"
+    chef.add_recipe "zanui-thumbor"
     # chef.add_recipe "zanui-web::opsworks-configure"
 
     # Dir['./zanui-cookbooks/zanui-*'].map { |a| File.basename(a) }.each do |name|
