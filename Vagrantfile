@@ -45,15 +45,8 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "nginx"
     chef.add_recipe "curl"
     chef.add_recipe "zanui-thumbor"
-    # chef.add_recipe "zanui-web::opsworks-configure"
 
-    # Dir['./zanui-cookbooks/zanui-*'].map { |a| File.basename(a) }.each do |name|
-      #chef.add_recipe "#{name}::opsworks-setup"
-      #chef.add_recipe "#{name}::opsworks-configure"
-    # end
-
-    # chef.add_recipe "zanui-dev"
-    # chef.add_recipe "zanui-common::opsworks-setup"
+    chef.run_list = ['recipe[apt]', 'recipe[nginx]', 'recipe[curl]', 'recipe[zanui-thumbor]']
 
     # chef.json = JSON.load(File.open('stacks/dev.json').read)
   end
