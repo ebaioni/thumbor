@@ -39,16 +39,17 @@ Vagrant.configure("2") do |config|
   # some recipes and/or roles.
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug
-    chef.cookbooks_path = "./cookbooks"
-
+    chef.cookbooks_path = "./thumbor-cookbooks"
+    #tbr
     chef.add_recipe "apt"
     chef.add_recipe "nginx"
     chef.add_recipe "curl"
     chef.add_recipe "zanui-thumbor"
 
-    chef.run_list = ['recipe[apt]', 'recipe[nginx]', 'recipe[curl]', 'recipe[zanui-thumbor]']
+    chef.run_list = ['recipe[apt]', 'recipe[nginx]', 'recipe[curl]']
+    #chef.run_list = ['recipe[apt]', 'recipe[nginx]', 'recipe[curl]', 'recipe[zanui-thumbor]']
+    #chef.run_list = ['recipe[zanui-thumbor]']
 
-    # chef.json = JSON.load(File.open('stacks/dev.json').read)
   end
 
 end
