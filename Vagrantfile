@@ -46,9 +46,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "curl"
     chef.add_recipe "zanui-thumbor"
 
-    chef.run_list = ['recipe[apt]', 'recipe[nginx]', 'recipe[curl]']
-    #chef.run_list = ['recipe[apt]', 'recipe[nginx]', 'recipe[curl]', 'recipe[zanui-thumbor]']
-    #chef.run_list = ['recipe[zanui-thumbor]']
+    chef.run_list = ['recipe[zanui-thumbor]']
 
   end
 
